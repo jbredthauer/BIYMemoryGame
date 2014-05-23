@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Build-It-Yourself Memory Game</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<script type="text/javascript" src="js/mustache.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script id="cardTemplate" type="x-tmpl-mustache">
+	{{#cards}}
+		<div class="card col-xs-6 col-sm-5 col-md-4 col-lg-3" id="card{{ID}}">
+			<div class="card-back"></div>
+			<div class="card-front" style="display:none">{{{ content }}}</div>
+		</div>
+	{{/cards}}
+	</script>
+<script id="playerTemplate" type="x-tmpl-mustache">
+	{{#players}}
+		<div class="player col-sm-12 col-md-6" id="player{{ID}}">
+			<h2 class="playerName">{{ name }}</h2>
+			<span class="playerScore">{{ score }}</span>
+		</div>
+	{{/players}}
+</script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/Game.js"></script>
+<script type="text/javascript" src="js/Player.js"></script>
+<script type="text/javascript" src="js/Card.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			var g = new Game();
+			g.start(2, 10, 3);
+		});
+</script>
+<style>
+	#scoreboard{
+		background-color:black;
+		color:white;
+		margin-left: auto;
+		margin-right: auto;
+		width: 600px;
+		text-align:center;
+	}
+	.player{
+    display: inline-block;
+    width: 49%;
+    background-color:black;
+	}
+	.player.currentPlayer{
+		background-color:gold;
+	}
+	.card{
+		position:relative;
+		height:100px;
+		padding:0px;
+	}
+	.card-back{
+		background-color:blue;
+		position:absolute;
+		height:100px;
+		width:100%;
+		overflow:hidden;
+	}
+	.card-back:hover{
+		background-color:lightblue;
+	}
+	.card.pendingMatch{
+		border: 5px solid yellow;
+	}
+	.card.wrongMatch{
+		border: 5px solid red;
+	}
+	.card.correctMatch{
+		border: 5px solid green;
+	}
+        .card.matched .card-back{
+            background-color:white;
+        }
+</style>
+</head>
+<body>
+	
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">Memory Game</a>
+			</div>
+		
+		<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li class="active"><a href="#">New Game</a></li>
+				<li><a href="#">About</a></li>
+			  </ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="container">
+		<div id="scoreboard">
+		</div>
+		
+		<div id="playingArea">
+		</div>
+	</div>
+	
+</body>
+</html>
