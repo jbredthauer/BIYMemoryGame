@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.build-it-yourself.BIYMemoryGame" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>BIY Memory Game</name>
+    <description>
+        A simple memory game created by BIY interns learning HTML, CSS, and Javascript.
+    </description>
+    <author email="jacob.bredthauer@gmail.com" href="http://www.build-it-yourself.com">
+        Jacob Bredthauer and Build-It-Yourself interns
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
